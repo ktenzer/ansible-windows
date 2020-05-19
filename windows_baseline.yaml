@@ -1,0 +1,20 @@
+---
+- name: Windows Baseline
+  hosts: "{{ target }}"
+  connection: winrm
+  gather_facts: true
+  vars:
+    ansible_user: "{{ user }}"
+    ansible_password: "{{ password }}"
+    ansible_connection: winrm 
+    ansible_winrm_transport: basic 
+    ansible_winrm_server_cert_validation: ignore
+
+  tasks:
+    - name: Install Baseline Packages
+      include_role:
+        name: install
+
+    - name: Perform Updates
+      include_role:
+        name: updates
