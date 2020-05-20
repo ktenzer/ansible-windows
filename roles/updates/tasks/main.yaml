@@ -2,7 +2,10 @@
 - name: Update windows packages
   win_updates:
     category_names:
+      - Application
       - CriticalUpdates
+      - DefinitionUpdates
       - SecurityUpdates
+      - Updates
     reboot: yes
     reboot_timeout: 500
